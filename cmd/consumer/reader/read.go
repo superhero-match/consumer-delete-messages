@@ -17,6 +17,8 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"go.uber.org/zap"
+	"time"
 )
 
 // Read consumes the Kafka topic and stores the match to DB.
@@ -28,8 +30,20 @@ func (r *Reader) Read() error {
 		m, err := r.Consumer.Consumer.FetchMessage(ctx)
 		fmt.Print("after FetchMessage")
 		if err != nil {
+			r.Logger.Error(
+				"failed to fetch message",
+				zap.String("err", err.Error()),
+				zap.String("time", time.Now().UTC().Format(r.TimeFormat)),
+			)
+
 			err = r.Consumer.Consumer.Close()
 			if err != nil {
+				r.Logger.Error(
+					"failed to close consumer",
+					zap.String("err", err.Error()),
+					zap.String("time", time.Now().UTC().Format(r.TimeFormat)),
+				)
+
 				return err
 			}
 
@@ -49,12 +63,20 @@ func (r *Reader) Read() error {
 		var superheroID string
 
 		if err := json.Unmarshal(m.Value, &superheroID); err != nil {
-			fmt.Println("json.Unmarshal")
-			fmt.Println(err)
+			r.Logger.Error(
+				"failed to unmarshal JSON into superheroID",
+				zap.String("err", err.Error()),
+				zap.String("time", time.Now().UTC().Format(r.TimeFormat)),
+			)
+
 			err = r.Consumer.Consumer.Close()
 			if err != nil {
-				fmt.Println("r.Consumer.Consumer.Close()")
-				fmt.Println(err)
+				r.Logger.Error(
+					"failed to close consumer",
+					zap.String("err", err.Error()),
+					zap.String("time", time.Now().UTC().Format(r.TimeFormat)),
+				)
+
 				return err
 			}
 
@@ -63,13 +85,19 @@ func (r *Reader) Read() error {
 
 		err = r.Cache.DeleteOfflineMessages(fmt.Sprintf(r.Cache.MessagesKeyFormat, superheroID))
 		if err != nil {
-			fmt.Println("r.Cache.StoreMessage")
-			fmt.Println(err)
+			r.Logger.Error(
+				"failed to delete offline message from cache",
+				zap.String("err", err.Error()),
+				zap.String("time", time.Now().UTC().Format(r.TimeFormat)),
+			)
 
 			err = r.Consumer.Consumer.Close()
 			if err != nil {
-				fmt.Println("r.Consumer.Consumer.Close()")
-				fmt.Println(err)
+				r.Logger.Error(
+					"failed to close consumer",
+					zap.String("err", err.Error()),
+					zap.String("time", time.Now().UTC().Format(r.TimeFormat)),
+				)
 
 				return err
 			}
@@ -79,11 +107,20 @@ func (r *Reader) Read() error {
 
 		err = r.Consumer.Consumer.CommitMessages(ctx, m)
 		if err != nil {
-			fmt.Println("r.Consumer.Consumer.CommitMessages")
-			fmt.Println(err)
+			r.Logger.Error(
+				"failed to commit message",
+				zap.String("err", err.Error()),
+				zap.String("time", time.Now().UTC().Format(r.TimeFormat)),
+			)
 
 			err = r.Consumer.Consumer.Close()
 			if err != nil {
+				r.Logger.Error(
+					"failed to close consumer",
+					zap.String("err", err.Error()),
+					zap.String("time", time.Now().UTC().Format(r.TimeFormat)),
+				)
+
 				return err
 			}
 

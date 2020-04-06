@@ -10,15 +10,15 @@ build:
 	chmod +x bin/main
 
 dkb:
-	docker build -t consumer .
+	docker build -t consumer-delete-messages .
 
 dkr:
-	docker run consumer
+	docker run consumer-delete-messages
 
 launch: dkb dkr
 
 cr-log:
-	docker logs consumer -f
+	docker logs consumer-delete-messages -f
 
 rmc:
 	docker rm -f $$(docker ps -a -q)
@@ -29,7 +29,7 @@ rmi:
 clear: rmc rmi
 
 cr-ssh:
-	docker exec -it consumer /bin/bash
+	docker exec -it consumer-delete-messages /bin/bash
 
 
 PHONY: prepare build dkb dkr launch cr-log db-log es-log cr-ssh db-ssh es-ssh rmc rmi clear
