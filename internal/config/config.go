@@ -21,6 +21,7 @@ import (
 type Config struct {
 	Consumer *Consumer
 	Cache    *Cache
+	Health   *Health
 }
 
 // NewConfig returns the configuration.

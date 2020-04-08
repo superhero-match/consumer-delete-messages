@@ -13,7 +13,7 @@ dkb:
 	docker build -t consumer-delete-messages .
 
 dkr:
-	docker run consumer-delete-messages
+	docker run -p "8010:8010" consumer-delete-messages
 
 launch: dkb dkr
 
