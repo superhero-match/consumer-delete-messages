@@ -2,7 +2,7 @@
 Superhero Match is an open source dating app.
 
 ## consumer-delete-messages
-This micro-service is responsible for deleting offline messages after these messages were received by receiver. 
+This micro-service is responsible for deleting offline messages after the messages were received by receiver. 
 
 ## Becoming Contributor
 If you want to become contributor, please send email to this address - `superheromatch@gmail.com`.
