@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="f48094b1-e513-4547-9e9c-e97149a5e2a6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/consumer/reader/read.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/consumer/reader/read.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/consumer/reader/reader.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/consumer/reader/reader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/cache/cache.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/cache.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/cache/delete.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/delete.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,9 +24,12 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="/usr/local/go" />
+  <component name="GOROOT" url="file:///usr/local/go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="1ZqbGztu9Y5Wyb22DYhJ5ysT1Ro" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -34,9 +43,13 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.format.on.save.advertiser.fired" value="true" />
+    <property name="go.formatter.settings.were.checked" value="true" />
     <property name="go.import.settings.migrated" value="true" />
+    <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="go.watchers.conflict.with.on.save.actions.check.performed" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -53,18 +66,18 @@
       <module name="consumer-delete-messages" />
       <working_directory value="$PROJECT_DIR$/" />
       <kind value="PACKAGE" />
-      <filePath value="$PROJECT_DIR$/cmd/consumer/main.go" />
       <package value="github.com/superhero-match/consumer-delete-messages/cmd/consumer" />
       <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/cmd/consumer/main.go" />
       <method v="2" />
     </configuration>
     <configuration name="go build github.com/superhero-match/consumer-delete-messages/cmd/health" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="consumer-delete-messages" />
       <working_directory value="$PROJECT_DIR$/" />
       <kind value="PACKAGE" />
-      <filePath value="$PROJECT_DIR$/cmd/health/main.go" />
       <package value="github.com/superhero-match/consumer-delete-messages/cmd/health" />
       <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/cmd/health/main.go" />
       <method v="2" />
     </configuration>
     <recent_temporary>
