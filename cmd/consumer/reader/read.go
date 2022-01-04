@@ -83,7 +83,7 @@ func (r *Reader) Read() error {
 			return err
 		}
 
-		err = r.Cache.DeleteOfflineMessages(fmt.Sprintf(r.Cache.MessagesKeyFormat, superheroID))
+		err = r.Cache.DeleteOfflineMessages(fmt.Sprintf(r.MessagesKeyFormat, superheroID))
 		if err != nil {
 			r.Logger.Error(
 				"failed to delete offline message from cache",
