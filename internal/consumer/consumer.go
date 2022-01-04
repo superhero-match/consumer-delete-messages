@@ -16,6 +16,8 @@ package consumer
 import (
 	"time"
 
+	kafka "github.com/segmentio/kafka-go"
+
 	"github.com/superhero-match/consumer-delete-messages/internal/config"
 )
 
