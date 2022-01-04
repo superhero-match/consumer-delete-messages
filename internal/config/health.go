@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2019 - 2021 MWSOFT
+  Copyright (C) 2019 - 2022 MWSOFT
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
@@ -19,4 +19,3 @@ type Health struct {
 	ShutdownEndpoint string `env:"CONSUMER_DELETE_MESSAGES_HEALTH_SERVER_SHUTDOWN_ENDPOINT" yaml:"shutdown_endpoint" default:"/api/v1/consumer_delete_messages_health/shutdown"`
 	ContentType      string `env:"CONSUMER_DELETE_MESSAGES_HEALTH_SERVER_CONTENT_TYPE" yaml:"content_type" default:"application/json"`
 }
-
