@@ -14,7 +14,7 @@
 package cache
 
 // DeleteOfflineMessages deletes offline messages from cache.
-func (c *Cache) DeleteOfflineMessages(key string) error {
+func (c *cache) DeleteOfflineMessages(key string) error {
 	keys := make([]string, 0)
 	keys = append(keys, key)
 
