@@ -17,17 +17,18 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"go.uber.org/zap"
 	"time"
+
+	"go.uber.org/zap"
 )
 
-// Read consumes the Kafka topic and stores the match to DB.
-func (r *Reader) Read() error {
+// Read consumes the Kafka topic and deletes offline message from the cache.
+func (r *reader) Read() error {
 	ctx := context.Background()
 
 	for {
 		fmt.Println("before FetchMessage")
-		m, err := r.Consumer.Consumer.FetchMessage(ctx)
+		m, err := r.Consumer.Consume(ctx)
 		fmt.Print("after FetchMessage")
 		if err != nil {
 			r.Logger.Error(
@@ -36,7 +37,7 @@ func (r *Reader) Read() error {
 				zap.String("time", time.Now().UTC().Format(r.TimeFormat)),
 			)
 
-			err = r.Consumer.Consumer.Close()
+			err = r.Consumer.Close()
 			if err != nil {
 				r.Logger.Error(
 					"failed to close consumer",
@@ -69,7 +70,7 @@ func (r *Reader) Read() error {
 				zap.String("time", time.Now().UTC().Format(r.TimeFormat)),
 			)
 
-			err = r.Consumer.Consumer.Close()
+			err = r.Consumer.Close()
 			if err != nil {
 				r.Logger.Error(
 					"failed to close consumer",
@@ -91,7 +92,7 @@ func (r *Reader) Read() error {
 				zap.String("time", time.Now().UTC().Format(r.TimeFormat)),
 			)
 
-			err = r.Consumer.Consumer.Close()
+			err = r.Consumer.Close()
 			if err != nil {
 				r.Logger.Error(
 					"failed to close consumer",
@@ -105,7 +106,7 @@ func (r *Reader) Read() error {
 			return err
 		}
 
-		err = r.Consumer.Consumer.CommitMessages(ctx, m)
+		err = r.Consumer.CommitMessages(ctx, m)
 		if err != nil {
 			r.Logger.Error(
 				"failed to commit message",
@@ -113,7 +114,7 @@ func (r *Reader) Read() error {
 				zap.String("time", time.Now().UTC().Format(r.TimeFormat)),
 			)
 
-			err = r.Consumer.Consumer.Close()
+			err = r.Consumer.Close()
 			if err != nil {
 				r.Logger.Error(
 					"failed to close consumer",
