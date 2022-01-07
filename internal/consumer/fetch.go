@@ -19,6 +19,6 @@ import (
 	kafka "github.com/segmentio/kafka-go"
 )
 
-func (c *consumer) Consume(ctx context.Context) (kafka.Message, error) {
+func (c *consumer) FetchMessage(ctx context.Context) (kafka.Message, error) {
 	return c.Consumer.FetchMessage(ctx)
 }

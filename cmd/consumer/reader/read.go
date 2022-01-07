@@ -28,7 +28,7 @@ func (r *reader) Read() error {
 
 	for {
 		fmt.Println("before FetchMessage")
-		m, err := r.Consumer.Consume(ctx)
+		m, err := r.Consumer.FetchMessage(ctx)
 		fmt.Print("after FetchMessage")
 		if err != nil {
 			r.Logger.Error(

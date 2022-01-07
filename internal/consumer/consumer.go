@@ -24,7 +24,7 @@ import (
 
 // Consumer interface defines consumer methods.
 type Consumer interface {
-	Consume(ctx context.Context) (kafka.Message, error)
+	FetchMessage(ctx context.Context) (kafka.Message, error)
 	Close() error
 	CommitMessages(ctx context.Context, m kafka.Message) error
 }
