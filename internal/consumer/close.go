@@ -13,6 +13,7 @@
 */
 package consumer
 
+// Close closes Kafka consumer.
 func (c *consumer) Close() error {
 	return c.Consumer.Close()
 }

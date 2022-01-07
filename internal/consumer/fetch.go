@@ -19,6 +19,7 @@ import (
 	kafka "github.com/segmentio/kafka-go"
 )
 
+// FetchMessage fetches a message from Kafka.
 func (c *consumer) FetchMessage(ctx context.Context) (kafka.Message, error) {
 	return c.Consumer.FetchMessage(ctx)
 }

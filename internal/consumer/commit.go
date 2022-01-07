@@ -19,6 +19,7 @@ import (
 	"github.com/segmentio/kafka-go"
 )
 
+// CommitMessages commits message.
 func (c *consumer) CommitMessages(ctx context.Context, m kafka.Message) error {
 	return c.Consumer.CommitMessages(ctx, m)
 }
